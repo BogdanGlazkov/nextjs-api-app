@@ -11,5 +11,12 @@ export default function handler(req, res) {
     };
     comments.push(newComment);
     res.status(201).json(newComment);
+  } else if (req.method === "PUT") {
+    const { id, text } = req.body;
+    const editedComment = comments.find(
+      (comment) => comment.id === parseInt(id)
+    );
+    editedComment.text = text;
+    res.status(200).json(editedComment);
   }
 }

@@ -16,7 +16,6 @@ export default function handler(req, res) {
       (comment) => comment.id === parseInt(commentId)
     );
     comments.splice(index, 1);
-
     res.status(200).json(deletedComment);
   }
 }
